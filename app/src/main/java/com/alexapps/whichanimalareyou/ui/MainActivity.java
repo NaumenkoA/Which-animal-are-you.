@@ -1,6 +1,7 @@
 package com.alexapps.whichanimalareyou.ui;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,12 +29,16 @@ public class MainActivity extends AppCompatActivity {
                 if (phrase.equals("")) {
                     Toast.makeText(MainActivity.this,"Enter your motto first!", Toast.LENGTH_SHORT ).show();
                                    }
-                else startQuestions();
+                else {
+                    String motto = mPhraseField.getText().toString();
+                    startQuestions(motto);
+                }
         }
     });
    }
-    private void startQuestions(){
+    private void startQuestions(String userMotto){
         Intent intent = new Intent(this, StatementActivity.class);
+        intent.putExtra(getString(R.string.motto),userMotto);
         startActivity(intent);
     }
 }
