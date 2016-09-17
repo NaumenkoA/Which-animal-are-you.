@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".ui.FinalActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/animalImageView"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/tiger"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:contentDescription="Animal picture"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PLAY AGAIN"
+        android:id="@+id/playAgainButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:visibility="visible"/>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/animalImageView"
+        android:layout_alignLeft="@+id/animalImageView"
+        android:layout_alignStart="@+id/animalImageView"
+        android:layout_marginRight="150dp"
+        android:layout_marginBottom="350dp"
+        android:id="@+id/speechLayout">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/speakImageView"
+            android:contentDescription="Cloud as if animal speaking"
+            android:src="@drawable/cloud"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1234567890123456789012345678901234567890"
+            android:id="@+id/mottoTextView"
+            android:textColor="#000000"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textSize="20dp"/>
+    </FrameLayout>
+
+</RelativeLayout>
