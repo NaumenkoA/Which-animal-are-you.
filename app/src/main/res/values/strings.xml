@@ -1,12 +1,14 @@
 <resources>
     <string name="app_name">Which animal are you?</string>
     <string name="motto">userMotto</string>
+    <string name="animalName">animal</string>
+    <string name="pictureId">id</string>
     <string-array name="degrees_array">
         <item>-nothing is selected-</item>
         <item>1 - that\'s completely not about me</item>
         <item>2 - that\'s quite a bit about me</item>
         <item>3 - Yes and No. I\'m somewhere in the middle </item>
-        <item>4 - that\'s almost completely about me</item>
-        <item>5 - that\'s 100% about me</item>
+        <item>4 - that\'s nearly about me</item>
+        <item>5 - that\'s absolutely about me</item>
     </string-array>
 </resources>

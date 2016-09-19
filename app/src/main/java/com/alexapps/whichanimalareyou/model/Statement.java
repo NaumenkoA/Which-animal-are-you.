@@ -38,7 +38,8 @@ public class Statement {
     public void setStatement(String statement) {
         mStatement = statement;
     }
-}
+
+    }
 
 
 

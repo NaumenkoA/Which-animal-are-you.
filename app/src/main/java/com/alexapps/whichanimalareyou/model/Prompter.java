@@ -4,21 +4,26 @@ import com.alexapps.whichanimalareyou.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class Prompter {
     private Animal[] mAnimals;
     private List <Statement> mStatementList;
-    private SortedMap <String, Integer> mUserAnswers;
+    private Statement mCurrentStatement;
+    private Map <String, Integer> mUserAnswers;
     public Prompter () {
+        mUserAnswers = new TreeMap<>();
         mAnimals = new Animal[10];
         Statement[] statements = new Statement[10];
         statements[0] = new Statement("air",
                 "You adore travelling by plane and can’t understand people, who’re trembling in fear at take off and landing. What can be better than view clear blue sky at 10 000 meter high?");
-        statements[1] = new Statement ("beaty",
-                "People often say that you look great, and you even catch the views of unfamiliar people, who admire your beaty.");
+        statements[1] = new Statement ("beauty",
+                "People often say that you look great, and you even catch the views of unfamiliar people, who admire your beauty.");
         statements[2] = new Statement ("honest",
                 "Usually it’s hard for you to lie to a person, even if it can bring some benefit to you. You prefer to say what you think and don’t like to hide thoughts.");
         statements[3] = new Statement ("muscles",
@@ -80,23 +85,27 @@ public class Prompter {
                 turtleArray);
     }
 
-    public Statement askQuestion () {
+    public String askQuestion () {
         int size = mStatementList.size();
         if (size == 1) {
-            Statement statement = mStatementList.get(0);
-            statement.setFinal(true);
-            return statement;
+            mCurrentStatement = mStatementList.get(0);
+            mCurrentStatement.setFinal(true);
+            return mCurrentStatement.getStatement();
         }
         Random random = new Random();
         int randomNumber = random.nextInt(size);
-        Statement statement = mStatementList.get(randomNumber);
+        mCurrentStatement = mStatementList.get(randomNumber);
         mStatementList.remove(randomNumber);
-        return statement;
+        return mCurrentStatement.getStatement();
     };
 
-    public void saveAnswer (Statement statement, int userAnswer) {
-    String feature = statement.getFeature();
+    public void saveAnswer (int userAnswer) {
+    String feature = mCurrentStatement.getFeature();
     mUserAnswers.put(feature,userAnswer);
+    }
+
+    public boolean isFinal () {
+        return mCurrentStatement.isFinal();
     }
 
     public Animal detectAnimal (){
